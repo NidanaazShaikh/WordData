@@ -1,75 +1,81 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 
-export default function About() {
+export default function About(props) {
 
-  const[myStyle, setMyStyle] = useState({
-    color : 'black',
-    backgroundColor : 'white'
-  });
-  const [btntext,setBtnText] = useState("Enable Dark Mode");
+  // const[myStyle, setMyStyle] = useState({
+  //   color : 'black',
+  //   backgroundColor : 'white'
+  // });
+  // const [btntext,setBtnText] = useState("Enable Dark Mode");
 
-  const toggleStyle =()=>{
-    if(myStyle.color === `white`){
-      setMyStyle({
-        color: 'black',
-        backgroundColor : 'white',
-        border : '2px solid white'
-    })
-      setBtnText("Enable Dark Mode");
-    }
-    else{
-      setMyStyle({
-        color : 'white',
-        backgroundColor : 'black'
-      })
-    setBtnText("Enable Light Mode");
-    }
-  }
+  // const toggleStyle =()=>{
+  //   if(myStyle.color === `white`){
+  //     setMyStyle({
+  //       color: 'black',
+  //       backgroundColor : 'white',
+  //       border : '2px solid white'
+  //   })
+  //     setBtnText("Enable Dark Mode");
+  //   }
+  //   else{
+  //     setMyStyle({
+  //       color : 'white',
+  //       backgroundColor : 'black'
+  //     })
+  //   setBtnText("Enable Light Mode");
+  //   }
+  // }
+let myStyle ={
+  color: props.mode === 'light' ? 'black' : 'white',
+  backgroundColor: props.mode === 'light' ? 'white' : 'rgb(36 74 104)',
+  border: '1px solid',
+  borderColor: props.mode === 'light' ? 'grey' : 'white',
+}
 
   return (
-    <div className="container" style={myStyle}>
+    <div className="container mp-2" style={{backgroundColor: props.mode === 'light' ? 'white' : '#042743', color: props.mode === 'light' ? 'black' : 'white'}}>
         <h1 className='my-2'>About Us</h1>
           <div className="accordion" id="accordionExample">
               <div className="accordion-item" >
                 <h2 className="accordion-header">
                   <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style={myStyle}>
-                    Accordion Item #1
+                  <strong>Abot WordData</strong>
                   </button>
                 </h2>
                 <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                   <div className="accordion-body" style={myStyle}>
-                    <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                  wordData, also known as TextUtils, is a tool used to manipulate and transform text in various ways. It allows users to perform operations like converting text to uppercase/lowercase, removing extra spaces, or counting words and characters. It's helpful for quick and efficient text formatting or analysis.
                   </div>
                 </div>
               </div>
               <div className="accordion-item">
                 <h2 className="accordion-header">
                   <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style={myStyle}>
-                    Accordion Item #2
+                  <strong>Free To Use</strong>
                   </button>
                 </h2>
                 <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                   <div className="accordion-body" style={myStyle}>
-                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                  wordData (TextUtils) is completely free to use, offering all its text manipulation features without any cost.
                   </div>
                 </div>
               </div>
               <div className="accordion-item">
                 <h2 className="accordion-header">
                   <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style={myStyle}>
-                    Accordion Item #3
+                  <strong>Browser Compatible</strong>
                   </button>
                 </h2>
                 <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                   <div className="accordion-body" style={myStyle}>
-                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                  wordData (TextUtils) is fully browser-compatible, meaning you can access and use it directly from any modern web browser without needing to install anything. It's designed for seamless performance across devices and platforms.
                   </div>
                 </div>
               </div>
         </div>
-        <div className="conatainer my-3">
+        {/* <div className="conatainer my-3">
         <button onClick={toggleStyle} type="button" class="btn btn-primary">{btntext}</button>
-        </div>
+        </div> */}
   </div>
   )
 }

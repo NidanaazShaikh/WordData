@@ -1,10 +1,9 @@
 import { useState } from "react";
-// import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
-// import About from "./components/About";
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import About from "./components/About";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 function App() {
@@ -37,20 +36,20 @@ function App() {
   }
   return (
          <>     
-        {/* <BrowserRouter> */}
+        <BrowserRouter>
          <div>
          {/* <Navbar title="WordData" aboutText="About2"/> */}
               <Navbar mode={mode} toggleMode={toggleMode}  />
               <Alert alert={alert}/>   
         <div className="container my-3">
-      {/* <Routes> */}
-        {/* <Route exact path="/" element={<TextForm alert={alert}  showAlert={showAlert} mode={mode} heading="Enter the text to analyze below"/> } /> */}
-        <TextForm alert={alert}  showAlert={showAlert} mode={mode} heading="Enter the text to analyze below"/>
-        {/* <Route exact path="/about" element={<About />} /> */}
-      {/* </Routes> */}
+      <Routes>
+        <Route exact path="/" element={<TextForm alert={alert}  showAlert={showAlert} mode={mode} heading="Enter the text to analyze below"/> } />
+        {/* <TextForm alert={alert}  showAlert={showAlert} mode={mode} heading="Enter the text to analyze below"/> */}
+        <Route exact path="/about" element={<About alert={alert}  showAlert={showAlert} mode={mode} />} />
+      </Routes>
         </div>   
         </div>
-     {/* </BrowserRouter> */}
+     </BrowserRouter>
          </>  
   );
 }
